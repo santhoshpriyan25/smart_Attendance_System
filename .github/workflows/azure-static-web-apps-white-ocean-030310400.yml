@@ -33,7 +33,7 @@ jobs:
           ###### Repository/Build Configurations ######
           app_location: "/" 
           api_location: "" 
-          output_location: "/" 
+          output_location: "" # Leave empty when using skip_app_build
           skip_app_build: true 
           ###### End of Repository/Build Configurations ######
 
