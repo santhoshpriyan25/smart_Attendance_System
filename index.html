@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REC | AI Smart Attendance</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.js"></script>
+    <script defer src="app.js"></script>
+</head>
+<body>
+    <div class="top-nav">Rajalakshmi Engineering College — Autonomous</div>
+    
+    <div class="main-wrapper">
+        <header class="app-header">
+            <div class="brand">
+                <h1>REC</h1>
+                <p>AI Smart Attendance Terminal</p>
+            </div>
+            <div id="status" class="status-indicator">Initializing AI...</div>
+        </header>
+
+        <div class="content-grid">
+            <div class="panel camera-panel">
+                <div class="panel-header">Scan Terminal (Fast-Mode)</div>
+                <div class="video-container">
+                    <video id="webcam" autoplay muted width="640" height="480"></video>
+                </div>
+                <div class="panel-footer">
+                    <p class="instruction">Instant verification active. Align face to mark attendance.</p>
+                </div>
+            </div>
+
+            <div class="panel status-panel">
+                <div class="panel-header">Recent Activity (Persistent)</div>
+                <div class="scroll-box">
+                    <ul id="log-list" class="private-log">
+                        </ul>
+                </div>
+                <div class="privacy-notice">🔒 Local Data Security Active. Records survive refresh.</div>
+            </div>
+        </div>
+
+        <div class="admin-control">
+            <div id="admin-login-area">
+                <input type="password" id="staff-key" placeholder="Enter Staff Access Key">
+                <button onclick="unlockAdmin()" class="btn-lock">Authorize Admin Actions</button>
+                
+                <button onclick="resetSystem()" class="btn-link" style="margin-top: 15px; display: block; width: 100%;">
+                    🗑️ Clear Today's Database
+                </button>
+            </div>
+            
+            <div id="admin-actions" style="display: none;">
+                <span class="auth-success">Authorized Staff Session</span>
+                <button id="download-btn" class="btn-download">Download Attendance (CSV)</button>
+                <button onclick="lockAdmin()" class="btn-link">Lock Session</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
